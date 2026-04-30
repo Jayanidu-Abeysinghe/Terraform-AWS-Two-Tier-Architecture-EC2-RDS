@@ -5,6 +5,11 @@ Everything is defined as code – reproducible, versionable, and easy to tear do
 
 ## 📘 Architecture Overview
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Terraform-AWS-Two-Tier-Architecture-EC2-RDS/blob/main/Images/Architecture%20diagram.png" width="800"><br><br>
+  <em>Architecture Diagram</em>
+</p>
+
 ```text
 Internet
    |
@@ -18,6 +23,8 @@ Web Server Security Group                 DB Security Group
    (allows 0.0.0.0/0:80,8080,22)          (allows 3306 from Web SG)
    └──────────────────────────────────────┘
 ```
+
+
 
 - VPC – Isolated network with CIDR 10.0.0.0/16
 - Public Subnet – Hosts the EC2 instance, has a route to the Internet Gateway
@@ -115,6 +122,11 @@ terraform apply
 Type "yes" when prompted.
 Creation takes about 5–6 minutes (mainly the RDS database).
 At the end you will see outputs similar to:
+
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Terraform-AWS-Two-Tier-Architecture-EC2-RDS/blob/main/Images/Img1.png" width="800"><br><br>
+  <em>Apply the Configuration</em>
+</p>
 
 ```text
 instance_public_ip = "100.26.211.201"
@@ -217,6 +229,10 @@ sudo apt install mysql-client -y
 ```bash
 mysql -h <rds_endpoint> -u admin -p epicbook
 ```
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Terraform-AWS-Two-Tier-Architecture-EC2-RDS/blob/main/Images/Img2.png" width="800"><br><br>
+  <em>Database Logs</em>
+</p>
 
 ## Cleanup
 
